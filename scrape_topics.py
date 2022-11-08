@@ -10,5 +10,9 @@ def scrape_topics(topiclink):
     posts = soup.find_all('div', class_='messageContent')
     #post_texte = posts.find_all('div',class_='messageText')
     for post in posts:
-        post_text = post.find('div',class_='messageText')
+        try:
+            post_text = post.find('div',class_='messageText')
+        except:
+            post_text = 'no text found'
         print(post_text.text)
+
